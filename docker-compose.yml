@@ -1,5 +1,6 @@
 services:
   ui:
+    image: britto-lead-finder:${COOLIFY_RESOURCE_UUID:-local}
     build: .
     command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0 --server.headless=true --browser.gatherUsageStats=false
     env_file:
@@ -15,7 +16,7 @@ services:
     restart: unless-stopped
 
   api:
-    build: .
+    image: britto-lead-finder:${COOLIFY_RESOURCE_UUID:-local}
     command: uvicorn listingsfinder.api:app --host 0.0.0.0 --port 8000
     env_file:
       - .env
@@ -30,7 +31,7 @@ services:
     restart: unless-stopped
 
   scheduler:
-    build: .
+    image: britto-lead-finder:${COOLIFY_RESOURCE_UUID:-local}
     command: python -m listingsfinder.scheduler_service
     env_file:
       - .env
