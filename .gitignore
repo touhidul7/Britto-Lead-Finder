@@ -1,0 +1,48 @@
+# Secrets and local config
+.env
+.env.*
+!.env.example
+credentials/
+*.json
+!package.json
+!package-lock.json
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache/build output
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Local app data
+data/
+exports/
+*.db
+*.sqlite
+*.sqlite3
+
+# Streamlit local settings
+.streamlit/secrets.toml
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+~$*
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

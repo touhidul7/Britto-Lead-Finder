@@ -1,0 +1,16 @@
+[Unit]
+Description=ListingsFinder AI API
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/listingsfinder-ai
+EnvironmentFile=/opt/listingsfinder-ai/.env
+ExecStart=/opt/listingsfinder-ai/.venv/bin/uvicorn listingsfinder.api:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=10
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target

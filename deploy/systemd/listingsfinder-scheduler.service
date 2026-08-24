@@ -1,0 +1,16 @@
+[Unit]
+Description=ListingsFinder AI Scheduler
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/listingsfinder-ai
+EnvironmentFile=/opt/listingsfinder-ai/.env
+ExecStart=/opt/listingsfinder-ai/.venv/bin/python -m listingsfinder.scheduler_service
+Restart=always
+RestartSec=30
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target
